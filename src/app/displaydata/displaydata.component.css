@@ -1,0 +1,51 @@
+/* .playlists {
+    display: inline-block;
+} */
+
+img.img-wrap {
+    max-width: 150px;
+    padding-right: 10px;
+    padding-left:  10px;
+}
+
+card {
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+div.album {
+    margin: 25px;
+    position: relative;
+
+}
+
+button.footer-nav {
+    margin: 1em;
+}
+
+span.header {
+    font-size: 1.4em;
+}
+span.user {
+    font-size: .65em;
+    margin-left: 2em;
+    color: rgb(192, 192, 192);
+}
+
+.album-button {
+    position: absolute;
+    left: 120px;
+    bottom: 110px;
+}
+
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+/* .svg {
+    width: 24px;
+    height: 24px;
+    transform: scale(4);
+} */
