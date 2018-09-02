@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { SearchResults } from './models/searchResults.model';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { catchError} from 'rxjs/operators';
 import { environment, backend } from './../environments/environment';
 
 @Injectable({

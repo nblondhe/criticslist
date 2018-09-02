@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
 import { DisplaydataComponent } from './displaydata/displaydata.component';
 import { SpotifyService } from './spotify.service';
@@ -19,15 +18,15 @@ import {
   MatListModule,
   MatCardModule,
   MatTooltipModule,
-  MatSnackBarModule
-} from "@angular/material";
+  MatSnackBarModule,
+  MatProgressSpinnerModule
+} from '@angular/material';
 
 export const spotifySettings = environment.config;
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     AboutComponent,
     DisplaydataComponent,
     LoginComponent,
@@ -44,7 +43,8 @@ export const spotifySettings = environment.config;
     MatListModule,
     MatCardModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ],
 
   providers: [SpotifyService],

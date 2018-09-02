@@ -1,12 +1,12 @@
 <router-outlet></router-outlet>
 
+<div *ngIf="albums">
 <div class="container">
   <div class="row">
     <mat-toolbar color="primary">
       <span class="header">Critics List</span>
       <span class="user">Using Spotify as {{ this.userId }}</span>
-      <!-- This fills the remaining space of the current row -->
-      <span class="example-fill-remaining-space"></span>
+      <span class="fill-space"></span>
       <span>
         <button mat-raised-button color="" type=button (click)="createList()">CREATE LIST</button>
       </span>
@@ -34,25 +34,12 @@
     </mat-card-content>
     </mat-card>
     <mat-toolbar color="primary">
-        <!-- <span><h2>Critics List</h2></span> -->
         <span class="user">Some information....</span>
-        <!-- This fills the remaining space of the current row -->
-        <span class="example-fill-remaining-space"></span>
+        <span class="fill-space"></span>
         <span>
-          <button class="footer-nav" mat-raised-button color="" type=button >DO THING</button>
-          <button class="footer-nav" mat-raised-button color="" type=button >DO THING</button>
-          <button class="footer-nav" mat-raised-button color="" type=button >DO THING</button>
+          <button class="footer-nav" mat-raised-button color="" type=button >ABOUT</button>
         </span>
       </mat-toolbar>
   </div>
 </div>
-
-<!-- <mat-card-content>
-    <h2 class="example-h2">Result</h2>
-    <mat-progress-spinner
-        class="example-margin"
-        [color]="color"
-        [mode]="mode"
-        [value]="value">
-    </mat-progress-spinner>
-  </mat-card-content> -->
+</div>

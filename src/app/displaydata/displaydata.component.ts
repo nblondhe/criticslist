@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../spotify.service';
-import { SearchResults } from '../models/searchResults.model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry, MatSnackBar } from '@angular/material';
-import { map, flatMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import {TooltipPosition} from '@angular/material';
 
 @Component({
   selector: 'app-displaydata',
@@ -134,7 +130,6 @@ export class DisplaydataComponent implements OnInit {
             result => {
               subscribeCount++;
               result['items'].forEach(element => {
-                // this.tracks.push('spotify:track:' + element['id']);
                 const last = this.tracks[this.tracks.length - 1];
                 if (!last || last.length === chunkSize) {
                   this.tracks.push(['spotify:track:' + element['id']]);
