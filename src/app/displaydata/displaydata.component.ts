@@ -19,7 +19,6 @@ export class DisplaydataComponent implements OnInit {
   error;
   albums: any = [];
   tracks: any = [];
-  currentDate = 'dummydate';
   playlistId;
 
   constructor(
@@ -37,10 +36,17 @@ export class DisplaydataComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._spotify.backendGet('/auth/get-token').subscribe(res => {
+      this.accessToken = res['token'];
+    },
+      error => {
+        if (error) {
+          this.error = error;
+        }
+      },
+      () => this.getProfile()
+    );
     this.getData();
-    const urlParams = new URLSearchParams(location.search);
-    this.accessToken = urlParams.get('access_token');
-    this.getProfile();
   }
 
   getProfile() {
@@ -51,7 +57,6 @@ export class DisplaydataComponent implements OnInit {
 
   getData() {
     this._spotify.backendGet('/publications/album-data').subscribe(data => {
-      console.log(data);
       this.data = data;
     },
     error => {
@@ -76,13 +81,12 @@ export class DisplaydataComponent implements OnInit {
         .sendGet(`/search?q=${q}&type=${type}&limit=${limit}`, this.accessToken)
         .subscribe(
           result => {
-            console.log(result);
             try {
             this.albums.push({
               image: result['albums']['items'][0]['images'][0]['url'],
               id: result['albums']['items'][0]['id']
             });
-            } catch(err) {
+            } catch (err) {
               // console.log(`${q} not found in search`);
               // Save in list to display
             }
@@ -107,7 +111,6 @@ export class DisplaydataComponent implements OnInit {
       .subscribe(
         results => {
           this.playlistId = results['id'];
-          console.log('playlist id', this.playlistId);
         },
         error => {
           if (error) {
@@ -147,7 +150,6 @@ export class DisplaydataComponent implements OnInit {
             },
             () => {
               if (subscribeCount === this.albums.length) {
-                console.log(this.tracks);
                 this.buildList();
               }
             }
@@ -164,7 +166,6 @@ export class DisplaydataComponent implements OnInit {
       this._spotify.sendPost(`/users/${this.userId}/playlists/${this.playlistId}/tracks?`, this.accessToken, postData)
         .subscribe(
           results => {
-            console.log(results);
             this.snackBar.open('Critics List added successfully!', 'Close', {
               duration: 3000,
             });
@@ -179,7 +180,6 @@ export class DisplaydataComponent implements OnInit {
   }
 
   removeAlbum(album) {
-    console.log(album);
     for (let i = 0; i < this.albums.length; i++) {
       if (album === this.albums[i]) {
         if (i !== -1) {
