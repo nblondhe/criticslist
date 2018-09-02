@@ -32,3 +32,4 @@ router.get('/album-data', function(req, res) {
     res.status(200).send(reviews);
   });
 
+  module.exports = router;

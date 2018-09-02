@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    window.location.href = this.authURL + '/login';
+    window.location.href = this.authURL + '/auth/login';
     console.log(window.location.href);
     // this._spotify.getAuth()
     //   .subscribe(

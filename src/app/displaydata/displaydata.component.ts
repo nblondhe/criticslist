@@ -50,7 +50,7 @@ export class DisplaydataComponent implements OnInit {
   }
 
   getData() {
-    this._spotify.backendGet('/album-data').subscribe(data => {
+    this._spotify.backendGet('/publications/album-data').subscribe(data => {
       console.log(data);
       this.data = data;
     },

@@ -23,7 +23,8 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-critics-list.code-workspace
+criticslist-prod.code-workspace
+.editorconfig
 
 # misc
 /.sass-cache
