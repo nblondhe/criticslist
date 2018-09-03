@@ -11,6 +11,6 @@ export const environment = {
 export const backend = {
   production: true,
   config: {
-    url: ''
+    url: 'http://criticslist.herokuapp.com'
   }
 };
