@@ -80,7 +80,9 @@ export class DisplaydataComponent implements OnInit {
             try {
             this.albums.push({
               image: result['albums']['items'][0]['images'][0]['url'],
-              id: result['albums']['items'][0]['id']
+              id: result['albums']['items'][0]['id'],
+              title: result['albums']['items'][0]['name'],
+              artist: result['albums']['items'][0]['artists'][0]['name']
             });
             } catch (err) {
               // console.log(`${q} not found in search`);

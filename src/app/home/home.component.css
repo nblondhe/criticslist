@@ -1,0 +1,16 @@
+h1.site-title {
+    font-size: 48;
+}
+
+p.statement {
+    margin-bottom: 20%;
+}
+
+div.spinner-parent {
+    position: relative;
+}
+mat-spinner {
+    position: absolute;
+    top: -11em;
+    left: 42%;
+}
