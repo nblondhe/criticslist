@@ -4,7 +4,7 @@ const querystring = require('querystring')
 const request = require('request')
 
 const port = process.env.PORT || 8888
-const redirect_uri = process.env.BASE_URL + '/auth/callback'
+const redirect_uri = process.env.BACK_URL + '/auth/callback'
 var access_token;
 
 router.get('/login', function (req, res) {
@@ -35,7 +35,7 @@ router.get('/callback', function (req, res) {
   }
   request.post(authOptions, function (error, response, body) {
     access_token = body.access_token
-    let uri = process.env.BASE_URL + '/data'
+    let uri = process.env.FRONT_URL + '/data'
     res.redirect(uri)
   })
 })
