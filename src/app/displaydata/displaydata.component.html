@@ -1,45 +1,55 @@
 <router-outlet></router-outlet>
 
 <div *ngIf="albums">
-<div class="container">
-  <div class="row">
-    <mat-toolbar color="primary">
-      <span class="header">Critics List</span>
-      <span class="user">Using Spotify as {{ this.userId }}</span>
-      <span class="fill-space"></span>
-      <span>
-        <button mat-raised-button color="" type=button (click)="createList()">CREATE LIST</button>
-      </span>
-    </mat-toolbar>
-    <mat-card>
-      <mat-card-content>
+    <div class="container">
       <div class="row">
-        <div class="col-3" *ngFor="let album of albums; let index = i" class="playlists">
-          <mat-card class="m-2">
-            <div class="album">
-              <!-- <h4>{{ playlist.name }}</h4> -->
-              <div *ngIf="album.image !== '#'">
-                <img class="img-wrap" src="{{ album.image }}">
-                <button matTooltip="Remove album from list" matTooltipPosition="right" class="album-button" color="accent" (click)="removeAlbum(album, i)"
-                  mat-mini-fab><mat-icon>remove</mat-icon></button>
-              </div>
-              <div *ngIf="album.image === '#'">
-                <mat-icon class="svg" svgIcon="speaker"></mat-icon>
-              </div>
+        <mat-toolbar color="primary">
+          <!-- <span class="header">Critics List</span> -->
+          <mat-form-field>
+            <mat-select placeholder="Select Reviewer">
+              <mat-option *ngFor="let reviewer of reviewers" [value]="reviewer.value">
+                {{reviewer.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> 
+          <span class="fill-space"></span>
+          <span class="user"><img class="icon" src="./assets/images/Spotify_Icon_RGB_White.png"> {{ this.userId }}</span>
+          <form>
+          </form>
+          <span>               
+            <button mat-raised-button color="accent" type=button (click)="createList()">Create Playlist</button>
+            <!-- <button class="ml-1" mat-raised-button color="accent" type=button >About</button>             -->
+          </span>
+        </mat-toolbar>
+        <mat-card>
+          <mat-card-content>
+          <div class="row">
+            <div style="display: flex; align-items: stretch; justify-content: center;" class="col-3" *ngFor="let album of albums; let index = i" class="playlists">
+              <mat-card class="album-card">
+                <div *ngIf="album.image !== '#'">
+                <img mat-card-image src="{{ album.image }}" alt="album cover">
+                </div>
+                <div *ngIf="album.image === '#'">
+                    <mat-icon class="svg" svgIcon="speaker"></mat-icon>
+                  </div>
+                <button matTooltip="Remove album from list" matTooltipPosition="right" class="remove-button" color="accent" (click)="removeAlbum(album, i)"
+                mat-mini-fab><mat-icon>remove</mat-icon></button>
+                  <mat-card-content>
+                      <span><b>{{ album.artist }}</b></span>
+                      <mat-card-subtitle class="album-title">{{ album.title }}</mat-card-subtitle>
+                  </mat-card-content>
+                </mat-card>
             </div>
-          </mat-card>
-        </div>
-        <div class="col-3"></div>
+          </div>
+        </mat-card-content>
+        </mat-card>
+        <!-- <mat-toolbar color="primary">
+            <span class="user">Some information....</span>
+            <span class="fill-space"></span>
+            <span>
+              <button class="footer-nav" mat-raised-button color="" type=button >ABOUT</button>
+            </span>
+          </mat-toolbar> -->
       </div>
-    </mat-card-content>
-    </mat-card>
-    <mat-toolbar color="primary">
-        <span class="user">Some information....</span>
-        <span class="fill-space"></span>
-        <span>
-          <button class="footer-nav" mat-raised-button color="" type=button >ABOUT</button>
-        </span>
-      </mat-toolbar>
-  </div>
-</div>
-</div>
+    </div>
+    </div>

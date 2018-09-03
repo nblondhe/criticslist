@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../spotify.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry, MatSnackBar } from '@angular/material';
+import { MatIconRegistry, MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material';
 
 @Component({
   selector: 'app-displaydata',
@@ -15,13 +15,20 @@ export class DisplaydataComponent implements OnInit {
   error;
   albums: any = [];
   tracks: any = [];
+  reviewers = [
+    {value: 'pfbest', viewValue: 'Pitchfork - 8.0+ Reviews'},
+    {value: 'avclub', viewValue: 'AV Club'},
+    {value: 'rstone', viewValue: 'Rolling Stone'}
+  ];
+
   playlistId;
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
     private _spotify: SpotifyService,
     private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
   ) {
     iconRegistry.addSvgIcon(
       'speaker',

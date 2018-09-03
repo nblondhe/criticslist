@@ -18,7 +18,8 @@ import {
   MatCardModule,
   MatTooltipModule,
   MatSnackBarModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatSelectModule
 } from '@angular/material';
 
 export const spotifySettings = environment.config;
@@ -40,6 +41,7 @@ export const spotifySettings = environment.config;
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatSelectModule,
     MatSnackBarModule,
     MatTooltipModule,
     MatProgressSpinnerModule
