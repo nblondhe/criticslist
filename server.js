@@ -11,13 +11,7 @@ const app = express()
 const port = process.env.PORT || 8888
 app.use(bodyParser.json());
 
-if (!process.env.DEVELOPMENT) {
-  app.use(express.static(__dirname + '/dist/criticslist'));
-  // // Angular routing for production (PathLocationStrategy)
-  app.get('/*', function (req, res) {
-      res.sendFile(path.join(__dirname +'/dist/criticslist/index.html'));
-  })
-} else {
+if (process.env.DEVELOPMENT) {
   // CORS for local dev 
   app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:4200');
@@ -26,6 +20,12 @@ if (!process.env.DEVELOPMENT) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
   });
+} else {
+  app.use(express.static(__dirname + '/dist/criticslist'));
+  // // Angular routing for production (PathLocationStrategy)
+  app.get('/*', function (req, res) {
+      res.sendFile(path.join(__dirname +'/dist/criticslist/index.html'));
+  })
 }
 
 app.use('/publications', publicationsRouter);
