@@ -25,7 +25,7 @@ if (process.env.DEVELOPMENT) {
   // // Angular routing for production (PathLocationStrategy)
   app.get('/*', function (req, res) {
       res.sendFile(path.join(__dirname +'/dist/criticslist/index.html'));
-  })
+  });
 }
 
 app.use('/publications', publicationsRouter);
