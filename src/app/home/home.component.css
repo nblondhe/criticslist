@@ -1,37 +1,40 @@
-::ng-deep body {
-    overflow-y: hidden;
+
+.jumbotron {
+    background: none;
+}
+
+.row.home {
+    margin-top: 20%;
+    display: block;
 }
 
 h1.site-title {
-    font-size: 64;
+    font-size: 5em;
+    font-weight: 300;
 }
 
 p.statement {
-    margin-bottom: 0;
+    margin-bottom: 3em;
 }
 
-div.spinner-parent {
-    position: relative;
-}
-
-mat-spinner {
-    position: absolute;
-    top: -11em;
-    left: 42%;
+.navigate {
+    margin-top: 5em;
+    display: block
 }
 
 .img-wrapper {
     max-width: 30%;
     margin-top: 1em;
-    margin-bottom: 5em;
+    margin-left: 50%;
 }
 
 footer.sticky-footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	height: 30px;
-    line-height: 60px;
+    height: 20px;
+    font-size: 1em;
+    line-height: 35px;
     background-color: #fff;
-    padding-bottom: 4em;
+    padding-bottom: 2.5em;
 }

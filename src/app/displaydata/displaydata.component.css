@@ -1,4 +1,21 @@
 
+.jumbotron {
+    padding-top: 1.5rem;
+    padding-bottom: .5rem;
+    background: none;
+}
+
+h1.display-4 {
+    padding-top: 2rem;
+}
+span.user {
+    margin-right: 0 !important;
+}
+
+div.center {
+    padding-left: 5em;
+}
+
 span.header {
     font-size: 1.4em;
 }
@@ -10,9 +27,8 @@ img.icon {
 }
 
 span.user {
-    font-size: .75em;
-    margin-right: 2em;
-    color: rgb(214, 214, 214);
+    padding-top: .25em;
+    margin-right: 3em;
 }
 
 .fill-space {
@@ -26,7 +42,15 @@ mat-form-field.reviewer-select {
     line-height: 1;
     font-size: initial;
     margin-right: 2em;
-    margin-top: .5em;
+}
+
+/* mat-form-field.mat-form-field-flex {
+    margin-top: -.5em !important;
+} */
+
+.cards {
+    display: flex;
+    align-items: stretch;
 }
 
 .container.spinner {
@@ -34,8 +58,6 @@ mat-form-field.reviewer-select {
 }
 
 .album-card {
-    /* position: relative; */
-    /* max-width: 150px; */
     margin: 20px;
     width: 200px;
 }

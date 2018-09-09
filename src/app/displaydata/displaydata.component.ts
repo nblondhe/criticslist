@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../spotify.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry, MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material';
+import { MatIconRegistry, MatSnackBar, MatSnackBarVerticalPosition} from '@angular/material';
 
 @Component({
   selector: 'app-displaydata',
