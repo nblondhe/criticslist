@@ -22,6 +22,7 @@ export class DisplaydataComponent implements OnInit {
   ];
 
   playlistId;
+  displayAlbums = false;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
@@ -100,7 +101,8 @@ export class DisplaydataComponent implements OnInit {
             if (error) {
               this.error = error;
             }
-          }
+          },
+          () => this.displayAlbums = true
         );
     });
   }

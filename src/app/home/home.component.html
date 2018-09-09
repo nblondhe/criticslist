@@ -3,14 +3,11 @@
     <img class="spot-logo" src="">
     <br>
     <h1 class="site-title"><b>Critics List</b></h1>
-    <br>
+    <br>    
     <p class="statement">Critics List builds and customizes playlists based on new releases and album reviews.
-      <br><br></p>
-    <div class="spinner-parent">
-      <br>
-      <mat-spinner *ngIf="showSpinner" [diameter]="150"></mat-spinner>
-    </div>
-    <div *ngIf="!showSpinner">
+    </p>
+    <img class="img-wrapper" src="./assets/images/city_walk.svg">
+    <div>
       <button mat-raised-button color="primary" type=button (click)="login()">LOGIN WITH SPOTIFY</button>
     </div>
     <br>
@@ -19,7 +16,7 @@
 </div>
 <br>
 <footer class="sticky-footer text-center">
-    <p>Critics List Copyright &copy; 2018 <a class="bodylink" href="https://github.com/nblondhe">njb</a>. Critics List
+    <p>Critics List Copyright &copy; 2018 <a class="bodylink" href="https://github.com/nblondhe/criticslist">njb</a>. Critics List
       is not affiliated with Spotify or any of the mentioned publications. Built using <a class="bodylink" href="http://www.spotify.com">Spotify</a>.
     </p>
   </footer>

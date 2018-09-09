@@ -1,26 +1,37 @@
+::ng-deep body {
+    overflow-y: hidden;
+}
+
 h1.site-title {
-    font-size: 48;
+    font-size: 64;
 }
 
 p.statement {
-    margin-bottom: 20%;
+    margin-bottom: 0;
 }
 
 div.spinner-parent {
     position: relative;
 }
+
 mat-spinner {
     position: absolute;
     top: -11em;
     left: 42%;
 }
 
+.img-wrapper {
+    max-width: 30%;
+    margin-top: 1em;
+    margin-bottom: 5em;
+}
+
 footer.sticky-footer {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	width: 100%;
 	height: 30px;
     line-height: 60px;
     background-color: #fff;
-    padding-bottom: 80px;
+    padding-bottom: 4em;
 }

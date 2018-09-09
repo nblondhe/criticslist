@@ -22,9 +22,19 @@ span.user {
 mat-card-subtitle.album-title {
     margin-top: .5em;
 }
+mat-form-field.reviewer-select {
+    line-height: 1;
+    font-size: initial;
+    margin-right: 2em;
+    margin-top: .5em;
+}
+
+.container.spinner {
+    margin-top: 20%;
+}
 
 .album-card {
-    position: relative;
+    /* position: relative; */
     /* max-width: 150px; */
     margin: 20px;
     width: 200px;
@@ -32,8 +42,8 @@ mat-card-subtitle.album-title {
 
 .remove-button {
     position: absolute;
-    bottom: -20px;
-    left: 154px;
+    bottom: -1.25em;
+    left: 10.75em;
     margin-left: 2em;
     margin-right: 2em;
 }
