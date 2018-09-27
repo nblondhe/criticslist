@@ -4,7 +4,10 @@ const request = require('request')
 const querystring = require('querystring')
 const bodyParser = require('body-parser');
 
-const publicationsRouter = require('./routes/publications');
+const metacriticRouter = require('./routes/metacritic');
+const pitchforkRouter = require('./routes/pitchfork');
+const nmeRouter = require('./routes/nme');
+const guardianRouter = require('./routes/guardian');
 const authRouter = require('./routes/auth');
 const app = express()
 
@@ -27,7 +30,10 @@ if (process.env.PRODUCTION === 'true') {
 }
 app.use(bodyParser.json());
 
-app.use('/publications', publicationsRouter);
+app.use('/metacritic', metacriticRouter);
+app.use('/guardian', guardianRouter);
+app.use('/nme', nmeRouter);
+app.use('/pitchfork', pitchforkRouter);
 app.use('/auth', authRouter);
 
 app.listen(port)

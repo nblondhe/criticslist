@@ -4,6 +4,7 @@ const router = express.Router();
 const request = require('request')
 const cheerio = require('cheerio')
 
+// Adjust to choose randomly selected User-Agent
 var options = {
     url: 'https://pitchfork.com/best/high-scoring-albums/',
     headers: {
@@ -21,14 +22,13 @@ request(options, (error, response, html) => {
             const reviewAlbum = $(el).find('h2').text();
             reviews.push({artist: reviewArtist, album: reviewAlbum})
         })
-
-        console.log('reviews', reviews);
+        console.log('\npitchfork reviews', reviews);
         const data = JSON.stringify(reviews)
 
     }
 });
 
-router.get('/album-data', function(req, res) {
+router.get('/pitchfork-album-data', function(req, res) {
     res.status(200).send(reviews);
   });
 

@@ -16,11 +16,13 @@ export class DisplaydataComponent implements OnInit {
   albums: any = [];
   tracks: any = [];
   reviewers = [
-    {value: 'pfbest', viewValue: 'Pitchfork - 8.0+ Reviews'},
-    {value: 'avclub', viewValue: 'AV Club'},
-    {value: 'rstone', viewValue: 'Rolling Stone'}
+    {value: '/pitchfork/pitchfork-album-data', viewValue: 'Pitchfork - 8.0+ Reviews'},
+    {value: '/nme/nme-album-data', viewValue: 'NME'},
+    {value: '/guardian/guardian-album-data', viewValue: 'The Guardian'},
+    {value: '/metacritic/metacritic-album-data', viewValue: 'Metacritic'}
   ];
-
+  // selected = 'Pitchfork - 8.0+ Reviews';
+  selectedPlaylist = this.reviewers[0];
   playlistId;
   displayAlbums = false;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -50,7 +52,7 @@ export class DisplaydataComponent implements OnInit {
       },
       () => this.getProfile()
     );
-    this.getData();
+    this.getData('/pitchfork/pitchfork-album-data');
   }
 
   getProfile() {
@@ -59,8 +61,11 @@ export class DisplaydataComponent implements OnInit {
     });
   }
 
-  getData() {
-    this._spotify.backendGet('/publications/album-data').subscribe(data => {
+  getData(reviewLocation) {
+    this.displayAlbums = false;
+    this.albums = [];
+    this.tracks = [];
+    this._spotify.backendGet(reviewLocation).subscribe(data => {
       this.data = data;
     },
     error => {

@@ -9,16 +9,19 @@
         </div>
         <h1 class="display-4">Critics List</h1>
         <span class="fill-space"></span>
-        <p class="lead">Select reviewer below to create a playlist to go along with your preferred review website </p>
+        <!-- <p class="lead">Select reviewer below to create a playlist to go along with your preferred review website </p> -->
         <hr class="my-4">
         <div style="display: flex;">
-          <mat-form-field class="reviewer-select">
-            <mat-select placeholder="Select Reviewer">
-              <mat-option *ngFor="let reviewer of reviewers" [value]="reviewer.value">
-                {{reviewer.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+        <form>
+            <mat-form-field class="reviewer-select">
+                <mat-select placeholder="Select Reviews" [(ngModel)]="selectedPlaylist" name="reviewer">
+                    <mat-option *ngFor="let reviewer of reviewers" [value]="reviewer.value">
+                        {{reviewer.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-stroked-button color="accent" type=button (click)="getData(selectedPlaylist)">Retrieve Albums</button>
+        </form>
           <span class="fill-space"></span>
           <span>
             <button mat-raised-button color="accent" type=button (click)="createList()">Create Playlist</button>
