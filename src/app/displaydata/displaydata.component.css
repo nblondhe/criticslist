@@ -6,7 +6,8 @@
 }
 
 h1.display-4 {
-    padding-top: 2rem;
+    color: #3f51b5;
+    font-weight: 500;
 }
 span.user {
     margin-right: 0 !important;
@@ -18,6 +19,10 @@ div.center {
 
 span.header {
     font-size: 1.4em;
+}
+
+span.create {
+    margin-top: .75em;
 }
 
 img.icon {

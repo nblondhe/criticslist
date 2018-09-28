@@ -13,20 +13,21 @@ var options = {
   };
 
 const reviews = [];
-// request(options, (error, response, html) => {
-//     if(!error && response.statusCode == 200) {
-//         const $ = cheerio.load(html);
+request(options, (error, response, html) => {
+  if (!error && response.statusCode == 200) {
+    const $ = cheerio.load(html);
 
-//         $('.review__title').each((i, el) => {           
-//             const reviewArtist = $(el).find('li').text();
-//             const reviewAlbum = $(el).find('h2').text();
-//             reviews.push({artist: reviewArtist, album: reviewAlbum})
-//         })
-//         console.log('\nguardian reviews', reviews);
-//         const data = JSON.stringify(reviews)
-
-//     }
-// });
+    $('.u-faux-block-link__cta').each((i, el) => {
+      const tag = $(el).find('span').text();
+      review = tag.split(':');
+      const reviewArtist = review[0];
+      const reviewAlbum = review[1].split('review')[0];
+      reviews.push({artist: reviewArtist, album: reviewAlbum})
+    })
+    console.log('\nguardian reviews', reviews);
+    const data = JSON.stringify(reviews)
+  }
+});
 
 router.get('/guardian-album-data', function(req, res) {
     res.status(200).send(reviews);

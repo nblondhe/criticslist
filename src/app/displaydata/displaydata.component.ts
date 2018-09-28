@@ -21,8 +21,8 @@ export class DisplaydataComponent implements OnInit {
     {value: '/guardian/guardian-album-data', viewValue: 'The Guardian'},
     {value: '/metacritic/metacritic-album-data', viewValue: 'Metacritic'}
   ];
-  // selected = 'Pitchfork - 8.0+ Reviews';
-  selectedPlaylist = this.reviewers[0];
+
+  selectedPlaylist = 'Pitchfork - 8.0+ Reviews';
   playlistId;
   displayAlbums = false;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
