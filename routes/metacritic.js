@@ -17,18 +17,16 @@ request(options, (error, response, html) => {
   if (!error && response.statusCode == 200) {
     const $ = cheerio.load(html);
 
-    $('.product_title').each((i, el) => {
-      const albumTag = $(el).find('a').text();
-      const artistTag = $(el).find('span').text();      
-      console.log('albumtag ', albumTag);
-      console.log('artisttag ', artistTag);
-      // const reviewArtist = $(el).find('li').text();
-      // const reviewAlbum = $(el).find('h2').text();
-      // reviews.push({ artist: reviewArtist, album: reviewAlbum })
+    $('.basic_stat').each((i, el) => {
+      const tag = $(el).find('h3').text();
+      if (tag.length < 1) {
+        return true;
+      }
+      review = tag.split('-');
+      const reviewArtist = review[1];
+      const reviewAlbum = review[0];
+      reviews.push({ artist: reviewArtist, album: reviewAlbum })
     })
-    // $('.product_artist').each((i, el) => {
-    //   console.log('produc artist', el);
-    // })
     console.log('\nmetacritic reviews', reviews);
     const data = JSON.stringify(reviews)
 

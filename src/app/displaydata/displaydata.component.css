@@ -1,7 +1,7 @@
 
 .jumbotron {
     padding-top: 1.5rem;
-    padding-bottom: .5rem;
+    padding-bottom: 0;
     background: none;
 }
 
@@ -36,6 +36,10 @@ span.user {
     margin-right: 3em;
 }
 
+.header-actions {
+    margin-bottom: -1rem;
+    margin-top: 2rem;
+}
 .fill-space {
     flex: 1 1 auto;
   }
