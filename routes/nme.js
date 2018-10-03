@@ -46,7 +46,6 @@ request(options, (error, response, html) => {
             reviews.push({artist: reviewArtist, album: reviewAlbum})
         })
 
-        console.log('\nnme-reviews', reviews);
         const data = JSON.stringify(reviews)
 
     }

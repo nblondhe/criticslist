@@ -27,7 +27,6 @@ request(options, (error, response, html) => {
       const reviewAlbum = review[0];
       reviews.push({ artist: reviewArtist, album: reviewAlbum })
     })
-    console.log('\nmetacritic reviews', reviews);
     const data = JSON.stringify(reviews)
 
   }

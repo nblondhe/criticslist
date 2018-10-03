@@ -35,7 +35,7 @@ router.get('/callback', function (req, res) {
   }
   request.post(authOptions, function (error, response, body) {
     access_token = body.access_token
-    let uri = process.env.FRONT_URL + '/data'
+    let uri = process.env.FRONT_URL + '/playlist'
     res.redirect(uri)
   })
 })

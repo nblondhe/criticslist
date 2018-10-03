@@ -52,7 +52,7 @@ export class DisplaydataComponent implements OnInit {
       },
       () => this.getProfile()
     );
-    this.getData('/pitchfork/pitchfork-album-data');
+    this.getData(this.reviewers[0].value);
   }
 
   getProfile() {
@@ -199,34 +199,4 @@ export class DisplaydataComponent implements OnInit {
       }
     }
   }
-
-  // getAlbumsAndTracks() {
-  //   const postData = {
-  //     type: 'album',
-  //     limit: 1
-  //   };
-  //   Object.entries(this.data).forEach(([key, value]) => {
-  //     const q = value;
-  //     const type = 'album';
-  //     const limit = 1;
-  //     this._spotify
-  //       .sendGet(`/search?q=${q}&type=${type}&limit=${limit}`, this.accessToken)
-  //       .pipe(
-  //         flatMap(album => {
-  //             const image = album['albums']['items'][0]['images'][0]['url'];
-  //             const id = album['albums']['items'][0]['id'];
-  //             this.albums.push({
-  //               image: image,
-  //               id: id,
-  //             });
-  //             return this._spotify.sendGet(`/albums/${id}/tracks`, this.accessToken);
-  //         }),
-  //       )
-  //       .subscribe(tracksReturned => {
-  //         tracksReturned['items'].forEach(element => {
-  //           this.tracks.push('spotify:track:' + element['id']);
-  //         });
-  //       });
-  //   });
-  // }
 }

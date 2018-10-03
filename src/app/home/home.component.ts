@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   }
 
   login() {
-    this.showSpinner = true;
     window.location.href = this.authURL + '/auth/login';
   }
 }

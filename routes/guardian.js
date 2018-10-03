@@ -24,7 +24,6 @@ request(options, (error, response, html) => {
       const reviewAlbum = review[1].split('review')[0];
       reviews.push({artist: reviewArtist, album: reviewAlbum})
     })
-    console.log('\nguardian reviews', reviews);
     const data = JSON.stringify(reviews)
   }
 });

@@ -22,7 +22,7 @@ request(options, (error, response, html) => {
             const reviewAlbum = $(el).find('h2').text();
             reviews.push({artist: reviewArtist, album: reviewAlbum})
         })
-        console.log('\npitchfork reviews', reviews);
+
         const data = JSON.stringify(reviews)
 
     }
