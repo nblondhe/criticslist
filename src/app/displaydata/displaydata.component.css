@@ -38,7 +38,7 @@ span.user {
 
 .header-actions {
     margin-bottom: -1rem;
-    margin-top: 2rem;
+    /* margin-top: 1rem; */
 }
 .fill-space {
     flex: 1 1 auto;
