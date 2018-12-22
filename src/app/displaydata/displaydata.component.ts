@@ -19,7 +19,7 @@ export class DisplaydataComponent implements OnInit {
     {value: '/pitchfork/pitchfork-album-data', viewValue: 'Pitchfork - 8.0+ Reviews'},
     {value: '/nme/nme-album-data', viewValue: 'NME'},
     {value: '/guardian/guardian-album-data', viewValue: 'The Guardian'},
-    {value: '/metacritic/metacritic-album-data', viewValue: 'Metacritic'}
+    // {value: '/metacritic/metacritic-album-data', viewValue: 'Metacritic'}
   ];
 
   selectedPlaylist = 'Pitchfork - 8.0+ Reviews';

@@ -12,21 +12,21 @@ var options = {
     }
   };
 
-// const reviews = [];
-// request(options, (error, response, html) => {
-//   if (!error && response.statusCode == 200) {
-//     const $ = cheerio.load(html);
+const reviews = [];
+request(options, (error, response, html) => {
+  if (!error && response.statusCode == 200) {
+    const $ = cheerio.load(html);
 
-//     $('.u-faux-block-link__cta').each((i, el) => {
-//       const tag = $(el).find('span').text();
-//       review = tag.split(':');
-//       const reviewArtist = review[0];
-//       const reviewAlbum = review[1].split('review')[0];
-//       reviews.push({artist: reviewArtist, album: reviewAlbum})
-//     })
-//     const data = JSON.stringify(reviews)
-//   }
-// });
+    $('.u-faux-block-link__cta').each((i, el) => {
+      const tag = $(el).find('span').text();
+      review = tag.split(':');
+      const reviewArtist = review[0];
+      const reviewAlbum = review[1].split('review')[0];
+      reviews.push({artist: reviewArtist, album: reviewAlbum})
+    })
+    const data = JSON.stringify(reviews)
+  }
+});
 
 router.get('/guardian-album-data', function(req, res) {
     res.status(200).send(reviews);

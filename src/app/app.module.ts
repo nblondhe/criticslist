@@ -4,7 +4,6 @@ import { environment } from '../environments/environment';
 
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
 import { DisplaydataComponent } from './displaydata/displaydata.component';
 import { SpotifyService } from './spotify.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,7 +27,6 @@ export const spotifySettings = environment.config;
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
     DisplaydataComponent,
     HomeComponent,
   ],

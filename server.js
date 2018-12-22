@@ -4,7 +4,6 @@ const request = require('request')
 const querystring = require('querystring')
 const bodyParser = require('body-parser');
 
-const allmusicRouter = require('./routes/allmusic');
 const metacriticRouter = require('./routes/metacritic');
 const pitchforkRouter = require('./routes/pitchfork');
 const nmeRouter = require('./routes/nme');
@@ -29,8 +28,7 @@ if (process.env.PRODUCTION === 'true') {
 }
 app.use(bodyParser.json());
 
-app.use('/allmusic', allmusicRouter);
-app.use('/metacritic', metacriticRouter);
+// app.use('/metacritic', metacriticRouter);
 app.use('/guardian', guardianRouter);
 app.use('/nme', nmeRouter);
 app.use('/pitchfork', pitchforkRouter);
@@ -40,7 +38,6 @@ app.listen(port)
 console.log(`Listening on port ${port}`)
 
 if (process.env.PRODUCTION === 'true') {
-  // Angular routing for production (PathLocationStrategy)
   app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/criticslist/index.html'));
   })
