@@ -4,8 +4,10 @@
     background: none;
 }
 
-.row.home {
+div.row {
     margin-top: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
     display: block;
 }
 
@@ -15,9 +17,12 @@ div.welcome {
 
 div.navigate {
     margin-right: 15%;
+    text-align: right;
+    margin-top: 5em;
+    display: block;
 }
 
-h1.site-title {
+h1 {
     font-size: 5em;
     font-weight: 300;
     color: #3f51b5;
@@ -25,11 +30,6 @@ h1.site-title {
 
 p.statement {
     margin-bottom: 3em;
-}
-
-.navigate {
-    margin-top: 5em;
-    display: block
 }
 
 .img-wrapper {
@@ -47,4 +47,111 @@ footer.sticky-footer {
     line-height: 35px;
     background-color: #fff;
     padding-bottom: 2.5em;
+}
+
+@media (min-width:768px) {
+    
+
+    .jumbotron {
+        background: none;
+    }
+
+    div.row {
+        margin-top: 20%;
+        display: block;
+    }
+
+    div.welcome {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    div.navigate {
+        margin-right: 5%;
+        text-align: right;
+        margin-top: 5em;
+        display: block
+    }
+
+    h1 {
+        font-size: 5em;
+        font-weight: 300;
+        color: #3f51b5;
+    }
+
+    p.statement {
+        margin-bottom: 3em;
+    }
+
+    .img-wrapper {
+        max-width: 30%;
+        margin-top: 1em;
+        margin-left: 50%;
+    }
+
+    footer.sticky-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 20px;
+        font-size: 1em;
+        line-height: 35px;
+        background-color: #fff;
+        padding-bottom: 2.5em;
+    }
+
+}
+
+@media (max-width:767px) {
+        
+    .jumbotron {
+        background: none;
+    }
+
+    div.row {
+        margin-top: 20%;
+        display: flex;
+        justify-content: center;
+    }
+
+    div.welcome {
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+    }
+
+    div.navigate {
+        text-align: center;
+        margin-top: 5em;
+        display: block;
+        margin-right: 0;
+    }
+
+    h1 {
+        font-size: 4em;
+        font-weight: 300;
+        color: #3f51b5;
+        margin-bottom: 2rem;
+    }
+
+    p.statement {
+        margin-bottom: 3em;
+    }
+
+    .img-wrapper {
+        max-width: 30%;
+        margin-top: 1em;
+        margin-left: 50%;
+    }
+
+    footer.sticky-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 20px;
+        font-size: 1em;
+        line-height: 35px;
+        background-color: #fff;
+        padding-bottom: 2.5em;
+    }
 }

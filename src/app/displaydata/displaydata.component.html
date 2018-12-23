@@ -7,10 +7,10 @@
         <img class="icon" src="./assets/images/Spotify_Icon_RGB_Black.png"><b>{{ this.userId }}</b>
       </span>
     </div>
-    <h1 class="display-4 mb-3">Critics List</h1>
+    <h1 class="display-4">Critics List</h1>
     <span class="fill-space"></span>
     <div class="header-actions" style="display: flex;">
-      <form>
+      <!-- <form> -->
         <mat-form-field class="reviewer-select">
           <mat-select placeholder="Select Reviews" [(ngModel)]="selectedPlaylist" name="reviewer">
             <mat-option *ngFor="let reviewer of reviewers" [(value)]="reviewer.value">
@@ -18,14 +18,13 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <button mat-stroked-button color="primary" type=button (click)="getData(selectedPlaylist)">Retrieve Albums</button>
-      </form>
+        <button class="retrieve" mat-stroked-button color="primary" type=button (click)="getData(selectedPlaylist)">Retrieve Albums</button>
+      <!-- </form> -->
       <span class="fill-space"></span>
       <span class="create">
         <button mat-raised-button color="primary" type=button (click)="createList()">Create Playlist</button>
       </span>
     </div>
-    <!-- <p class="lead">Select reviewer below to create a playlist to go along with your preferred review website </p> -->
     <hr class="my-4">
   </div>
   <div class="center">
@@ -34,7 +33,7 @@
         <mat-spinner [diameter]="250"></mat-spinner>
       </div>
     </div>
-    <div *ngIf="displayAlbums" class="row justify-content-left mt-3 mb-5">
+    <div *ngIf="displayAlbums" class="row album-row mt-3 mb-5">
       <div class="cards" *ngFor="let album of albums; let index = i">
         <mat-card class="album-card">
           <div *ngIf="album.image !== '#'">
