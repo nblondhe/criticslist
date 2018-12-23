@@ -141,6 +141,7 @@ div.spinner {
     mat-card-subtitle.album-title {
         margin-top: .5em;
         font-size: .75em;
+        margin-right: 20%;
     }
     mat-form-field.reviewer-select {
         line-height: 1;
@@ -178,11 +179,10 @@ div.spinner {
     
     .remove-button {
         position: absolute;
-        bottom: -1.25em;
-        left: 18em;
+        bottom: 1.25em;
+        left: 15em;
         margin-left: 2em;
         margin-right: 2em;
-        transform: scale(.75);
     }
 
 }
