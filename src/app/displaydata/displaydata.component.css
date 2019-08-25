@@ -1,17 +1,27 @@
 
 .jumbotron {
-    padding-top: 1.5rem;
+    padding-top: .75rem;
     padding-bottom: 0;
     background: none;
 }
 
-h1.display-4 {
+/* h1.display-4 {
     color: #3f51b5;
     font-weight: 500;
     margin-bottom: 1em;
+    font-family: 'Exo', sans-serif;
+} */
+
+.headerTop {
+    display: flex;
 }
-span.user {
-    margin-right: 0 !important;
+
+span.appHeader {
+    color: #3f51b5;
+    font-weight: 500;
+    font-size: 3.5rem;
+    font-family: 'Exo', sans-serif;
+    font-weight: 800;
 }
 
 div.center {
@@ -33,8 +43,8 @@ img.icon {
 }
 
 span.user {
-    padding-top: .25em;
-    margin-right: 3em;
+    padding-top: 1.5em;
+    margin-right: 0;
 }
 
 .header-actions {

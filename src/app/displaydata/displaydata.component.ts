@@ -25,7 +25,6 @@ export class DisplaydataComponent implements OnInit {
   selectedPlaylist = 'Pitchfork - 8.0+ Reviews';
   playlistId;
   displayAlbums = false;
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
     private _spotify: SpotifyService,
@@ -97,6 +96,7 @@ export class DisplaydataComponent implements OnInit {
               title: result['albums']['items'][0]['name'],
               artist: result['albums']['items'][0]['artists'][0]['name']
             });
+
             } catch (err) {
               // console.log(`${q} not found in search`);
               // Save in list to display
@@ -107,7 +107,9 @@ export class DisplaydataComponent implements OnInit {
               this.error = error;
             }
           },
-          () => this.displayAlbums = true
+          () => {
+            this.displayAlbums = true;
+          }
         );
     });
   }
@@ -179,6 +181,7 @@ export class DisplaydataComponent implements OnInit {
           results => {
             this.snackBar.open('Critics List added successfully!', 'Close', {
               duration: 3000,
+              verticalPosition: 'top'
             });
           },
           error => {
