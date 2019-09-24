@@ -17,13 +17,16 @@ request(options, (error, response, html) => {
   if (!error && response.statusCode == 200) {
     const $ = cheerio.load(html);
 
-    $('.u-faux-block-link__cta').each((i, el) => {
-      const tag = $(el).find('span').text();
-      review = tag.split(':');
-      const reviewArtist = review[0];
-      const reviewAlbum = review[1].split('review')[0];
-      reviews.push({artist: reviewArtist, album: reviewAlbum})
-    })
+    // $('.u-faux-block-link__cta').each((i, el) => {
+    //   const tag = $(el).find('span').text();
+    //   review = tag.split(':');
+    //   // TODO: scraping logic
+    //   if(review) {
+    //     const reviewArtist = review[0];
+    //     const reviewAlbum = review[1].split('review')[0];
+    //     reviews.push({artist: reviewArtist, album: reviewAlbum})
+    //   }
+    // })
     const data = JSON.stringify(reviews)
   }
 });
