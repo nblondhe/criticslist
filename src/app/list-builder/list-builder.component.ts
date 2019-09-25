@@ -17,14 +17,13 @@ export class ListBuilderComponent implements OnInit {
   tracks: any = [];
   playlistId;
   displayAlbums = false;
-
   reviewers = [
     { value: '/pitchfork/pitchfork-album-data', viewValue: 'Pitchfork - 8.0+ Reviews' },
     { value: '/nme/nme-album-data', viewValue: 'NME' },
     { value: '/guardian/guardian-album-data', viewValue: 'The Guardian' },
     // {value: '/metacritic/metacritic-album-data', viewValue: 'Metacritic'}
   ];
-
+  selectedPlaylist = this.reviewers[0].viewValue;
 
   constructor(
     private _spotify: SpotifyService,
