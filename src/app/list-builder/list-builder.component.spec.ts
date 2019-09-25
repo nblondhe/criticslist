@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DisplaydataComponent } from './displaydata.component';
+import { ListBuilderComponent } from './list-builder.component';
 
 describe('DisplaydataComponent', () => {
-  let component: DisplaydataComponent;
-  let fixture: ComponentFixture<DisplaydataComponent>;
+  let component: ListBuilderComponent;
+  let fixture: ComponentFixture<ListBuilderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DisplaydataComponent ]
+      declarations: [ ListBuilderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DisplaydataComponent);
+    fixture = TestBed.createComponent(ListBuilderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

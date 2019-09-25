@@ -12,21 +12,26 @@ var options = {
     }
   };
 
-const reviews = [];
+const reviews = {};
 request(options, (error, response, html) => {
   if (!error && response.statusCode == 200) {
     const $ = cheerio.load(html);
+    let review;
 
-    // $('.u-faux-block-link__cta').each((i, el) => {
-    //   const tag = $(el).find('span').text();
-    //   review = tag.split(':');
-    //   // TODO: scraping logic
-    //   if(review) {
-    //     const reviewArtist = review[0];
-    //     const reviewAlbum = review[1].split('review')[0];
-    //     reviews.push({artist: reviewArtist, album: reviewAlbum})
-    //   }
-    // })
+    $('.u-faux-block-link__cta').each((i, el) => {
+      const tag = $(el).find('span').text();
+      try {
+        review = tag.split(':');
+      } catch(e) {
+        // Log: document pattern changed
+      }
+
+      if(review && review.length > 1) {
+        const reviewArtist = review[0];
+        const reviewAlbum = review[1].split('review')[0].replace(/[?-]/g, "");
+        reviews[reviewArtist] = reviewAlbum;
+      }
+    })
     const data = JSON.stringify(reviews)
   }
 });

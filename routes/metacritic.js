@@ -35,7 +35,6 @@ const reviews = [];
 
 router.get('/metacritic-album-data', function(req, res) {
     res.status(200).send(reviews);
-    console.log(reviews);
   });
 
   module.exports = router;

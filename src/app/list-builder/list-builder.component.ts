@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../spotify.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry, MatSnackBar, MatSnackBarVerticalPosition} from '@angular/material';
+import { MatIconRegistry, MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material';
 
 @Component({
-  selector: 'app-displaydata',
-  templateUrl: './displaydata.component.html',
-  styleUrls: ['./displaydata.component.css']
+  selector: 'app-list-builder',
+  templateUrl: './list-builder.component.html',
+  styleUrls: ['./list-builder.component.css']
 })
-export class DisplaydataComponent implements OnInit {
-  data;
+export class ListBuilderComponent implements OnInit {
+  reviews = {};
   private accessToken;
   userId;
   error;
   albums: any = [];
   tracks: any = [];
+  playlistId;
+  displayAlbums = false;
+
   reviewers = [
-    {value: '/pitchfork/pitchfork-album-data', viewValue: 'Pitchfork - 8.0+ Reviews'},
-    {value: '/nme/nme-album-data', viewValue: 'NME'},
-    {value: '/guardian/guardian-album-data', viewValue: 'The Guardian'},
+    { value: '/pitchfork/pitchfork-album-data', viewValue: 'Pitchfork - 8.0+ Reviews' },
+    { value: '/nme/nme-album-data', viewValue: 'NME' },
+    { value: '/guardian/guardian-album-data', viewValue: 'The Guardian' },
     // {value: '/metacritic/metacritic-album-data', viewValue: 'Metacritic'}
   ];
 
-  selectedPlaylist = 'Pitchfork - 8.0+ Reviews';
-  playlistId;
-  displayAlbums = false;
 
   constructor(
     private _spotify: SpotifyService,
@@ -51,7 +51,7 @@ export class DisplaydataComponent implements OnInit {
       },
       () => this.getProfile()
     );
-    this.getData(this.reviewers[0].value);
+    this.getReviews(this.reviewers[0].value);
   }
 
   getProfile() {
@@ -60,19 +60,19 @@ export class DisplaydataComponent implements OnInit {
     });
   }
 
-  getData(reviewLocation) {
+  getReviews(reviewLocation) {
     this.displayAlbums = false;
     this.albums = [];
     this.tracks = [];
     this._spotify.backendGet(reviewLocation).subscribe(data => {
-      this.data = data;
+      this.reviews = data;
     },
-    error => {
-      if (error) {
-        this.error = error;
-      }
-    },
-    () => this.getAlbums()
+      error => {
+        if (error) {
+          this.error = error;
+        }
+      },
+      () => this.getAlbums()
     );
   }
 
@@ -81,25 +81,36 @@ export class DisplaydataComponent implements OnInit {
       type: 'album',
       limit: 1
     };
-    Object.entries(this.data).forEach((element) => {
-      const q = element[1]['album'];
+
+    const albums = Object.values(this.reviews);
+    const artists = Object.keys(this.reviews);
+    for (let i = 0; i < albums.length; i++) {
+      const q = albums[i];
       const type = 'album';
       const limit = 1;
       this._spotify
         .sendGet(`/search?q=${q}&type=${type}&limit=${limit}`, this.accessToken)
         .subscribe(
           result => {
+            let spotifyArtist;
+            let spotifyAlbum;
+            let hasArtistMatch;
             try {
-            this.albums.push({
-              image: result['albums']['items'][0]['images'][0]['url'],
-              id: result['albums']['items'][0]['id'],
-              title: result['albums']['items'][0]['name'],
-              artist: result['albums']['items'][0]['artists'][0]['name']
-            });
-
+              spotifyArtist = result['albums']['items'][0]['artists'][0]['name'];
+              spotifyAlbum = result['albums']['items'][0]['name'];
+              hasArtistMatch = this.reviews[spotifyArtist];
             } catch (err) {
               // console.log(`${q} not found in search`);
               // Save in list to display
+            }
+
+            if (spotifyAlbum && hasArtistMatch) {
+              this.albums.push({
+                image: result['albums']['items'][0]['images'][0]['url'],
+                id: result['albums']['items'][0]['id'],
+                title: spotifyAlbum,
+                artist: spotifyArtist
+              });
             }
           },
           error => {
@@ -111,7 +122,8 @@ export class DisplaydataComponent implements OnInit {
             this.displayAlbums = true;
           }
         );
-    });
+    }
+
   }
 
   createList() {

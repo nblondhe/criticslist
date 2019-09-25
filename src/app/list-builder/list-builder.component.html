@@ -19,7 +19,7 @@
       <div>
 
         <mat-form-field class="reviewer-select">
-          <mat-select placeholder="Select Reviews" (selectionChange)="getData(selectedPlaylist)"
+          <mat-select placeholder="Select Reviews" (selectionChange)="getReviews(selectedPlaylist)"
           [(ngModel)]="selectedPlaylist" name="reviewer">
           <mat-option *ngFor="let reviewer of reviewers" [(value)]="reviewer.value">
             {{reviewer.viewValue}}

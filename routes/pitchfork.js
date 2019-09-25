@@ -12,19 +12,16 @@ var options = {
     }
   };
 
-const reviews = [];
+const reviews = {};
 request(options, (error, response, html) => {
     if(!error && response.statusCode == 200) {
         const $ = cheerio.load(html);
-
         $('.review__title').each((i, el) => {           
             const reviewArtist = $(el).find('li').text();
             const reviewAlbum = $(el).find('h2').text();
-            reviews.push({artist: reviewArtist, album: reviewAlbum})
+            reviews[reviewArtist] = reviewAlbum;
         })
-
         const data = JSON.stringify(reviews)
-
     }
 });
 

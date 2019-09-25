@@ -13,7 +13,7 @@ var options = {
     }
   };
 
-const reviews = [];
+const reviews = {};
 request(options, (error, response, html) => {
     if(!error && response.statusCode == 200) {
         const $ = cheerio.load(html);
@@ -43,7 +43,7 @@ request(options, (error, response, html) => {
             const reviewArtist = artist.join(' ');
             let reviewAlbum = album.join(" ");
             reviewAlbum = reviewAlbum.substring(0, reviewAlbum.length-1);
-            reviews.push({artist: reviewArtist, album: reviewAlbum})
+            reviews[reviewArtist] = reviewAlbum;
         })
 
         const data = JSON.stringify(reviews)
