@@ -16,13 +16,9 @@ export class HomeComponent implements OnInit {
   constructor(private _spotify: SpotifyService) { }
 
   ngOnInit() {
-    console.log('is production environment ', environment.production);
-    console.log(this.authURL);
   }
 
   login() {
-    console.log('is production environment ', environment.production);
-    console.log(this.authURL);
     window.location.href = this.authURL + '/auth/login';
   }
 }

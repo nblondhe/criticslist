@@ -1,6 +1,6 @@
 
 .jumbotron {
-    padding-top: .75rem;
+    padding-top: 1.75rem;
     padding-bottom: 0;
     background: none;
 }
@@ -12,9 +12,9 @@
     font-family: 'Exo', sans-serif;
 } */
 
-.headerTop {
+/* .headerTop {
     display: flex;
-}
+} */
 
 span.appHeader {
     color: #3f51b5;
@@ -37,18 +37,23 @@ span.create {
 }
 
 img.icon {
-    max-width: 50px;
-    padding-right: 10px;
-    padding-left:  10px;
+    max-width: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 span.user {
-    padding-top: 1.5em;
     margin-right: 0;
+    display: block;
+    text-align: center;
+    font-size: 14px;
 }
 
 .header-actions {
     margin-bottom: -1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .fill-space {
     flex: 1 1 auto;
@@ -140,6 +145,7 @@ div.spinner {
     }
     
     .header-actions {
+        margin-top: 1rem;
         margin-bottom: -1rem;
         flex-direction: column;
         text-align: center;
